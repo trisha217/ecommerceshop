@@ -10,7 +10,7 @@ export const getProducts = () => async dispatch => {
 
     dispatch({
       type: actionTypes.GET_PRODUCTS_SUCCESS,
-      payload: JSON.parse(data),
+      payload: typeof data === 'string' ? JSON.parse(data) : data,
     })
   } catch (error) {
     dispatch({
